@@ -2,6 +2,7 @@ package com.esm.cliente.domain;
 
 import com.esm.cliente.application.api.ClienteRequest;
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
@@ -10,6 +11,7 @@ import java.util.UUID;
 @Entity
 @Getter
 @NoArgsConstructor
+@AllArgsConstructor
 @Table(name = "cliente", schema = "clientes")
 public class Cliente {
     @Id

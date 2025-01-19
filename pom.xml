@@ -9,9 +9,9 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>br.com.ekan</groupId>
-    <artifactId>beneficiario</artifactId>
+    <artifactId>cliente</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>beneficiario</name>
+    <name>cliente</name>
     <description>Essa aplicação mantém o cadastro de beneficiários de um plano de saúde.</description>
     <url/>
     <licenses>
