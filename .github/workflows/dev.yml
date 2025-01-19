@@ -26,6 +26,7 @@ jobs:
         uses: actions/setup-java@v3
         with:
           java-version: '17'
+          distribution: 'temurin' # Especifica a distribuição do JDK (obrigatório)
 
       # Etapa 3: Construir o projeto usando Maven
       - name: Build do projeto com Maven
