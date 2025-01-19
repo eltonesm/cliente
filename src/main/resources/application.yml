@@ -1,0 +1,23 @@
+server:
+  servlet:
+    context-path: /cliente/api
+
+spring:
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5433/cliente
+    username: postgres
+    password: esmy1458
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+      properties:
+        hibernate:
+          jdbc.lob.non_contextual_creation: true
+          default_schema: clientes
+  flyway:
+    schemas: clientes
+  sql:
+    init:
+      mode: never # Evitar execu��o autom�tica de SQL ao inicializar o Spring
