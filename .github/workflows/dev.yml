@@ -33,8 +33,8 @@ jobs:
         run: mvn clean install
 
       # Etapa 4: Executar os testes automatizados
-      - name: Executar testes com log detalhado
-        run: mvn test -X
+      - name: Executar testes com depuração detalhada
+        run: mvn clean install -e
 
       # Etapa 5: Upload de relatórios de teste
       - name: Upload de relatórios de teste
