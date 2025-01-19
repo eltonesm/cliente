@@ -36,3 +36,10 @@ jobs:
       - name: Executar testes com log detalhado
         run: mvn test -X
 
+      # Etapa 5: Upload de relatórios de teste
+      - name: Upload de relatórios de teste
+        uses: actions/upload-artifact@v3
+        with:
+          name: surefire-reports
+          path: target/surefire-reports
+
