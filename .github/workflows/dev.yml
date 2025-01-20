@@ -32,7 +32,7 @@ jobs:
       - name: Build do projeto com Maven
         run: mvn clean install
 
-      # Etapa 4: Executar os testes automatizados
+       # Etapa 4: Executar os testes automatizados
       - name: Executar testes com depuração detalhada
         run: mvn clean install -x
 
