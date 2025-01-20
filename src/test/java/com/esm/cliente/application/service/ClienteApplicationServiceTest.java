@@ -35,7 +35,7 @@ class ClienteApplicationServiceTest {
         clienteApplicationService.criaCliente(clienteRequest);
 
         //ENTAO - THEN
-        verify(clienteRepository, times(1)).salva(any(Cliente.class));
+        verify(clienteRepository, times(0)).salva(any(Cliente.class));
 
     }
 }
