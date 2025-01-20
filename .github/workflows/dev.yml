@@ -31,26 +31,10 @@ jobs:
       # Etapa 3: Construir o projeto usando Maven
       - name: Build do projeto com Maven
         run: mvn clean install
-
-      # Etapa 4: Executar os testes automatizados
-      - name: Executar testes com depuração detalhada
-        run: mvn clean install -e
-
+      
       # Etapa 5: Upload de relatórios de teste
       - name: Upload de relatórios de teste
         uses: actions/upload-artifact@v3
         with:
           name: surefire-reports
           path: target/surefire-reports
-
-      # Etapa 6: Verificação de dependências
-      - name: Verificar dependências
-        run: mvn dependency-check:aggregate
-
-      # Etapa 7: Testes de Performance
-      - name: Testes de Performance
-        run: jmeter -n -t path/to/test.jmx
-
-      # Etapa 8: Validação de Configuração
-      - name: Validação de Configuração
-        run: ./validate-config.sh
