@@ -16,7 +16,12 @@ public class ClinteInfraRepository implements ClienteRepository {
     @Override
     public Cliente salva(Cliente cliente) {
         log.info("[start] ClinteInfraRepository - salva");
-        clienteSpringJPARepository.save(cliente);
+        try {
+            clienteSpringJPARepository.save(cliente);
+        } catch (Exception e) {
+            throw new RuntimeException("Erro inesperado ao salvar cliente: {}");
+        }
+
         log.info("[finish] ClinteInfraRepository - salva");
         return cliente;
     }
