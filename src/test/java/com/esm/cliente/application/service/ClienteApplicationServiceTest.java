@@ -10,6 +10,8 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
@@ -36,6 +38,23 @@ class ClienteApplicationServiceTest {
 
         //ENTAO - THEN
         verify(clienteRepository, times(1)).salva(any(Cliente.class));
+        assertEquals(cliente.getNome(), "Elton");
 
+    }
+
+    @Test
+    @DisplayName("Deve lançar exceçaõ ao tentar salvar cliente")
+    void deveLancarExcecaoAoSalvarCliente() {
+        //DADO - GIVEN
+        ClienteRequest clienteRequest = DataHelper.clienteRequest();
+
+        //QUANDO - WHEN
+        when(clienteRepository.salva(any(Cliente.class))).thenThrow(new RuntimeException("Erro ao salvar"));
+
+        //ENTÃO - THEN
+        RuntimeException exception = assertThrows(RuntimeException.class,
+                () -> clienteApplicationService.criaCliente(clienteRequest));
+        assertEquals("Erro ao salvar", exception.getMessage());
+        verify(clienteRepository, times(1)).salva(any(Cliente.class));
     }
 }
