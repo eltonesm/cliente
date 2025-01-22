@@ -1,5 +1,6 @@
 package com.esm.cliente.application.service;
 
+import com.esm.cliente.application.api.ClienteListResponse;
 import com.esm.cliente.application.api.ClienteRequest;
 import com.esm.cliente.application.api.ClienteResponse;
 import com.esm.cliente.application.repository.ClienteRepository;
@@ -7,6 +8,8 @@ import com.esm.cliente.domain.Cliente;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 @RequiredArgsConstructor
@@ -21,5 +24,13 @@ public class ClienteApplicationService implements ClienteService {
         clienteRepository.salva(clienteCriado);
         log.info("[finish] ClienteApplicationService - criaCliente");
         return new ClienteResponse(clienteCriado);
+    }
+
+    @Override
+    public List<ClienteListResponse> buscaTodosClientes() {
+        log.info("[start] ClienteApplicationService - buscaTodosClientes");
+        List<Cliente> clientes = clienteRepository.buscaTodosClientes();
+        log.debug("[finish] ClienteApplicationService - buscaTodosClientes");
+        return ClienteListResponse.converte(clientes);
     }
 }
