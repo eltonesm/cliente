@@ -41,6 +41,7 @@ public class ClienteApplicationService implements ClienteService {
         return new ClienteDetalhadoResponse(cliente);
     }
 
+
     @Override
     public void editaCliente(ClienteAlteracaoRequest clienteAlteracaoRequest, UUID idCliente) {
         log.info("[start] ClienteApplicationService - editaCliente");
@@ -48,5 +49,13 @@ public class ClienteApplicationService implements ClienteService {
         cliente.altera(clienteAlteracaoRequest);
         clienteRepository.salva(cliente);
         log.debug("[finish] ClienteApplicationService - editaCliente");
+    }
+
+    @Override
+    public void deletaCliente(UUID idCliente) {
+        log.info("[start] ClienteApplicationService - deletaCliente");
+        Cliente cliente = clienteRepository.buscaClientePorId(idCliente);
+        clienteRepository.deletaCliente(cliente);
+        log.debug("[finish] ClienteApplicationService - deletaCliente");
     }
 }

@@ -45,4 +45,11 @@ public class ClinteInfraRepository implements ClienteRepository {
         log.debug("[finish] ClinteInfraRepository - buscaClientePorId");
         return cliente;
     }
+
+    @Override
+    public void deletaCliente(Cliente cliente) {
+        log.info("[start] ClinteInfraRepository - deletaCliente");
+        clienteSpringJPARepository.delete(cliente);
+        log.debug("[finish] ClinteInfraRepository - deletaCliente");
+    }
 }

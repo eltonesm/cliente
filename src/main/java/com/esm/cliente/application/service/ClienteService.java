@@ -13,4 +13,6 @@ public interface ClienteService {
     void editaCliente(ClienteAlteracaoRequest clienteAlteracaoRequest, UUID idCliente);
 
     ClienteDetalhadoResponse buscaClientePorId(UUID idCliente);
+
+    void deletaCliente(UUID idCliente);
 }

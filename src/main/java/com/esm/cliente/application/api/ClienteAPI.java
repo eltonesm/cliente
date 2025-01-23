@@ -26,4 +26,8 @@ public interface ClienteAPI {
     @ResponseStatus(code = HttpStatus.NO_CONTENT)
     void editaCliente(@RequestBody ClienteAlteracaoRequest clienteAlteracaoRequest,
                       @RequestParam(value = "idCliente") UUID idCliente);
+
+    @DeleteMapping("/{idCliente}")
+    @ResponseStatus(code = HttpStatus.NO_CONTENT)
+    void deletaCliente(@PathVariable UUID idCliente);
 }
