@@ -1,5 +1,6 @@
 package com.esm.cliente.domain;
 
+import com.esm.cliente.application.api.ClienteAlteracaoRequest;
 import com.esm.cliente.application.api.ClienteRequest;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -26,5 +27,11 @@ public class Cliente {
         this.nome = clienteRequest.getNome();
         this.cpf = clienteRequest.getCpf();
         this.telefone = clienteRequest.getTelefone();
+    }
+
+    public void altera(ClienteAlteracaoRequest clienteAlteracaoRequest) {
+        this.nome = clienteAlteracaoRequest.getNome();
+        this.cpf = clienteAlteracaoRequest.getCpf();
+        this.telefone = clienteAlteracaoRequest.getTelefone();
     }
 }

@@ -1,12 +1,18 @@
 package com.esm.cliente.application.service;
 
-import com.esm.cliente.application.api.ClienteListResponse;
-import com.esm.cliente.application.api.ClienteRequest;
-import com.esm.cliente.application.api.ClienteResponse;
+import com.esm.cliente.application.api.*;
 
 import java.util.List;
+import java.util.UUID;
 
 public interface ClienteService {
     ClienteResponse criaCliente(ClienteRequest clienteRequest);
+
     List<ClienteListResponse> buscaTodosClientes();
+
+    void editaCliente(ClienteAlteracaoRequest clienteAlteracaoRequest, UUID idCliente);
+
+    ClienteDetalhadoResponse buscaClientePorId(UUID idCliente);
+
+    void deletaCliente(UUID idCliente);
 }
